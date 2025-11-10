@@ -26,24 +26,46 @@ public class PlayerData : MonoBehaviour
 
     public void SaveData()
     {
-        UserData.playerName = playerName;
+        /*UserData.playerName = playerName;
         UserData.playerMaxHealth = playerMaxHealth;
         UserData.playerMaxMana = playerMaxMana;
         UserData.playerExp = playerExp;
-        UserData.playerPosition = playerPosition;
-
         Debug.Log("Data Saved");
+        UserData.playerPosition = playerPosition;*/
+
+        Stats.UserStats.playerName = playerName;
+        Stats.UserStats.playerExp = playerExp;
+        Stats.UserStats.playerMaxHealth = playerMaxHealth;
+        Stats.UserStats.playerMaxMana = playerMaxMana;
+        Stats.UserStats.playerPosition = playerPosition;
+
+        SavingDataSystem.Save();
+
+
+        
     }
 
     public void LoadData()
-    {
-        playerName = UserData.playerName;
+    { 
+        
+        /*playerName = UserData.playerName;
         playerMaxHealth = UserData.playerMaxHealth;
         playerMaxMana = UserData.playerMaxMana;
         playerExp = UserData.playerExp;
-        playerPosition = UserData.playerPosition;
-
         Debug.Log("Data Loaded");
+        playerPosition = UserData.playerPosition;*/
+
+        SavingDataSystem.Load();
+        
+        playerName = Stats.UserStats.playerName;
+        playerExp = Stats.UserStats.playerExp;
+        playerMaxHealth = Stats.UserStats.playerMaxHealth;
+        playerMaxMana = Stats.UserStats.playerMaxMana;
+        playerPosition = Stats.UserStats.playerPosition;
+
+        
+
+        
     }
 
 
